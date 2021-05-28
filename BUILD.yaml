@@ -1,0 +1,38 @@
+GLOB_INCLUDE : 
+  - "src/"
+
+BUILD_OUTPUT : "~/BUILD_OUTPUT/"
+
+BUILD_TARGET :
+  - target_test
+  - target_foo
+
+target_test : 
+  NAME : test
+  TYPE : shared
+  SOURCE :
+    - "src/test.cpp"
+  INCLUDE :
+    - "src/"
+  FLAGS :
+    - "-g"
+    - "-fPIC"
+    - "-W"
+    - "-Wall"
+  LIBS :
+    - "z"
+    - "pthread"
+    - "ssl"
+
+target_foo : 
+  NAME : foo
+  TYPE : static
+  SOURCE :
+    - "src/foo.cpp"
+  INCLUDE :
+    - "src/"
+  FLAGS :
+    - "-g"
+    - "-fPIC"
+    - "-W"
+    - "-Wall"
