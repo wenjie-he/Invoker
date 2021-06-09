@@ -10,6 +10,9 @@ BUILD_TARGET :
 target_test : 
   NAME : test
   TYPE : shared
+  DEPS :
+    - REPO : git@github.com:wenjie-he/invention.git
+      BRANCH : main
   SOURCE :
     - "src/test.cpp"
   INCLUDE :
@@ -27,6 +30,9 @@ target_test :
 target_foo : 
   NAME : foo
   TYPE : static
+  DEPS : 
+    - REPO : git@github.com:wenjie-he/top_track.git
+      BRANCH : master
   SOURCE :
     - "src/foo.cpp"
   INCLUDE :
