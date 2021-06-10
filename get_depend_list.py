@@ -14,6 +14,7 @@ def ReadBuildYaml(repo):
 
 def GetDependLists(yaml_root):
     depend_lists = []
+    result = ""
     for label in yaml_root["BUILD_TARGET"]:
         if not yaml_root[label].__contains__("DEPS"):
             continue
@@ -23,9 +24,11 @@ def GetDependLists(yaml_root):
             branch = d["BRANCH"]
             #repo_dir = re.findall(r"git@code.devops.xiaohongshu.com:(.+?).git", repo_url)
             depend_lists.append((repo_url, branch))
-            print (repo_url, branch)
-
+            result += repo_url + " " + branch + "\n"
+            #print (repo_url, branch)
+    print (result)
     return depend_lists
+
 
 if __name__ == "__main__":
     yaml_dir = sys.argv[1]
